@@ -1,11 +1,19 @@
 include .deosrc
 
-all: clean build
-	@clear
-	$(BIN)/a.out
+all: clean; $(MAKE) $(EXE)
 
-build:
-	clang -std=c89 src/main.c -o bin/a.out
+$(EXE): build; $(EXE)
 
-clean:
-	-rm $(BIN)/a.out
+build: $(OBJECTS)
+	$(CC) -std=$(STD)\
+	      -I$(INCLUDE) $(SRC)/main.c $(OBJECTS)\
+	      -o $(EXE)
+
+$(OBJ)/%.o: $(LIB)/%.c $(INCLUDE)/%.h
+	$(CC) -std=$(STD)\
+	      -Wall -g\
+	      -I$(INCLUDE)\
+	      -c $(LIB)/$*.c\
+	      -o $(OBJ)/$*.o
+
+clean:; @-rm -rf $(OBJECTS) $(EXE)

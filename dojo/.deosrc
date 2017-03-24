@@ -1,10 +1,17 @@
 export MAKEFLAGS   := --no-print-directory
 .DEFAULT_GOAL      := all
 .SUBLIME_TARGETS:     all
-.PHONY:               all
+.PHONY:               all\
+                      build\
+                      clean
 BIN                := $(CURDIR)/bin
 INCLUDE            := $(CURDIR)/include
 LIB                := $(CURDIR)/lib
 OBJ                := $(CURDIR)/obj
 SRC                := $(CURDIR)/src
 TEST               := $(CURDIR)/test
+CC                 := clang
+STD                := c89
+EXE                := $(BIN)/a.out
+FILES              := $(wildcard $(LIB)/*.c)
+OBJECTS            := $(patsubst $(LIB)/%,$(OBJ)/%,$(FILES:.c=.o))

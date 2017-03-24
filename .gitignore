@@ -1,3 +1,7 @@
+#[wildcards]
+*.o
+*.out
+
 #[folders]
 src/cuckoo/bitcoin/
 src/keccak/bitcoin/

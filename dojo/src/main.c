@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int
-main(int argc, char const *argv[])
-{   printf("Hello, world!\n");
+#include "block.h"
+
+int main(int argc, char const *argv[])
+{
+    block *b = newBlock(1);
+    printf("block: %d\n", b->id);
     return EXIT_SUCCESS;
 }
