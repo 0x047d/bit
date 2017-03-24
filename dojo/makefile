@@ -1,8 +1,4 @@
-export MAKEFLAGS:=--no-print-directory
-
-.DEFAULT_GOAL:=all
-.SUBLIME_TARGETS:all
-.PHONY:all
+include .deosrc
 
 all:
 	@ echo "Hello, world!"
