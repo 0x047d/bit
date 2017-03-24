@@ -1,19 +1,35 @@
 include .deosrc
 
-all:
-	@ $(MAKE) up
+all: clean; $(MAKE) $(EXE)
 
-up:
-	@-vagrant up
+$(EXE): build; $(EXE)
 
-ssh:
-	@-vagrant ssh
+build: $(OBJECTS)
+	$(CC) -std=$(STD)\
+	      -I$(INCLUDE) $(SRC)/main.c $(OBJECTS)\
+	      -o $(EXE)
 
-stop:
-	@-vagrant suspend
-
-halt:
-	@-vagrant halt
+$(OBJ)/%.o: $(LIB)/%.c $(INCLUDE)/%.h
+	$(CC) -std=$(STD)\
+	      -Wall -g\
+	      -I$(INCLUDE)\
+	      -c $(LIB)/$*.c\
+	      -o $(OBJ)/$*.o
 
 clean:
-	@-vagrant destroy
+	@-rm -rf $(OBJECTS) $(EXE)
+
+up:
+	vagrant up
+
+ssh:
+	vagrant ssh
+
+stop:
+	vagrant suspend
+
+halt:
+	vagrant halt
+
+down:
+	vagrant destroy

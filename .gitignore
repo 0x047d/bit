@@ -3,8 +3,8 @@
 *.out
 
 #[folders]
-src/cuckoo/bitcoin/
-src/keccak/bitcoin/
+ext/cuckoo/bitcoin/
+ext/keccak/bitcoin/
 
 #[dotfiles]
 .DS_Store
