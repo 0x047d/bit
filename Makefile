@@ -2,6 +2,12 @@ include .deosrc
 
 all: clean; $(MAKE) $(EXE)
 
+bitcoin:
+	cd $(EXT)/bitcoin &&\
+	./autogen.sh &&\
+	./configure &&\
+	make
+
 $(EXE): build; $(EXE)
 
 build: $(OBJECTS)
