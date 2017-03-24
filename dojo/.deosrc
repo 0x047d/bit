@@ -2,3 +2,9 @@ export MAKEFLAGS   := --no-print-directory
 .DEFAULT_GOAL      := all
 .SUBLIME_TARGETS:     all
 .PHONY:               all
+BIN                := $(CURDIR)/bin
+INCLUDE            := $(CURDIR)/include
+LIB                := $(CURDIR)/lib
+OBJ                := $(CURDIR)/obj
+SRC                := $(CURDIR)/src
+TEST               := $(CURDIR)/test
