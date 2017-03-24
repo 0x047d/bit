@@ -1,0 +1,9 @@
+#[folders]
+src/cuckoo/bitcoin/
+src/keccak/bitcoin/
+
+#[dotfiles]
+.DS_Store
+
+#[dotfolders]
+.vagrant/
