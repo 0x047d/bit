@@ -1,23 +1,6 @@
-#ifndef __BLOCK__
-#define __BLOCK__
+#ifndef BITCOIN_PRIMITIVES_BLOCK_H
+#define BITCOIN_PRIMITIVES_BLOCK_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+int GetBlockWeight(void);
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-typedef struct blockObject
-{
-    int id;
-} block;
-
-extern block *newBlock(int id);
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* __BLOCK__ */
+#endif // BITCOIN_PRIMITIVES_BLOCK_H

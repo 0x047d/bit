@@ -4,14 +4,15 @@ export MAKEFLAGS   := --no-print-directory
 .PHONY:               all\
                       build\
                       clean
+CC                 := clang++
+STD                := c++11
 BIN                := $(CURDIR)/bin
 INCLUDE            := $(CURDIR)/include
 LIB                := $(CURDIR)/lib
 OBJ                := $(CURDIR)/obj
 SRC                := $(CURDIR)/src
 TEST               := $(CURDIR)/test
-CC                 := clang
-STD                := c89
 EXE                := $(BIN)/a.out
-FILES              := $(wildcard $(LIB)/*.c)
-OBJECTS            := $(patsubst $(LIB)/%,$(OBJ)/%,$(FILES:.c=.o))
+MAIN               := $(SRC)/main.cpp
+FILES              := $(wildcard $(LIB)/*.cpp)
+OBJECTS            := $(patsubst $(LIB)/%,$(OBJ)/%,$(FILES:.cpp=.o))

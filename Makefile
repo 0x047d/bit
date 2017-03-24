@@ -6,14 +6,15 @@ $(EXE): build; $(EXE)
 
 build: $(OBJECTS)
 	$(CC) -std=$(STD)\
-	      -I$(INCLUDE) $(SRC)/main.c $(OBJECTS)\
+	      -I$(INCLUDE)\
+	      $(MAIN)\
+	      $(OBJECTS)\
 	      -o $(EXE)
 
-$(OBJ)/%.o: $(LIB)/%.c $(INCLUDE)/%.h
-	$(CC) -std=$(STD)\
-	      -Wall -g\
+$(OBJ)/%.o: $(LIB)/%.cpp $(INCLUDE)/%.h
+	$(CC) -std=$(STD) -Wall -g\
 	      -I$(INCLUDE)\
-	      -c $(LIB)/$*.c\
+	      -c $(LIB)/$*.cpp\
 	      -o $(OBJ)/$*.o
 
 clean:
