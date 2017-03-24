@@ -2,9 +2,8 @@
 *.o
 *.out
 
-#[folders]
-ext/cuckoo/bitcoin/
-ext/keccak/bitcoin/
+#[files]
+ext/bitcoin/background.tiff*
 
 #[dotfiles]
 .DS_Store
