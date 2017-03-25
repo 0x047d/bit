@@ -14,9 +14,7 @@ Vagrant.configure('2') do |config|
                       : config.ssh.shell = ENV['DeOS_VM_SHELL_DEFAULT']
   end
 
-  config.vm.synced_folder ".", "/vagrant",
-    disabled:true
-  config.vm.synced_folder ".", ENV['DeOS_VM_PATH'],
-    create: true
+  config.vm.synced_folder ".", "/vagrant", disabled:true
+  config.vm.synced_folder ".", ENV['DeOS_VM_PATH'], create: true
 
-end # Vagrant.configure('2') do |config|
+end
