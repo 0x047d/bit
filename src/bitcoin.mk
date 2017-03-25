@@ -6,7 +6,10 @@ bitcoin.test: bitcoin.test.build
 
 bitcoin.test.build: bitcoin.test.clean
 	$(CC) -std=$(STD)\
-	      -I$(INCLUDE) $(BITCOIN_TEST_MAIN)\
+	      -I$(BITCOIN)/src/\
+	      $(BITCOIN_TEST_MAIN)\
+	      $(BITCOIN)/src/.libs/libbitcoinconsensus.a\
+	      -L/usr/local/opt/berkeley-db@4/lib\
 	      -o $(BITCOIN_TEST_EXE)
 
 bitcoin.test.clean:

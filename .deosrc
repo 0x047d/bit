@@ -12,6 +12,7 @@ export DeOS_VM_SHELL_SSH:=bash -l
 BASEDIR:=$(CURDIR)
 BIN:=$(BASEDIR)/bin
 EXT:=$(BASEDIR)/ext
+BITCOIN:=$(EXT)/bitcoin
 INCLUDE:=$(BASEDIR)/include
 LIB:=$(BASEDIR)/lib
 OBJ:=$(BASEDIR)/obj
