@@ -1,6 +1,0 @@
-#ifndef BITCOIN_PRIMITIVES_BLOCK_H
-#define BITCOIN_PRIMITIVES_BLOCK_H
-
-int GetBlockWeight(void);
-
-#endif // BITCOIN_PRIMITIVES_BLOCK_H
