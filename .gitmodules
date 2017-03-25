@@ -1,0 +1,6 @@
+[submodule "ext/bitcoin"]
+	path = ext/bitcoin
+	url = https://github.com/47d/bitcoin.git
+[submodule "ext/cuckoo"]
+	path = ext/cuckoo
+	url = https://github.com/47d/cuckoo.git

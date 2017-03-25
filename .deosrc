@@ -1,4 +1,35 @@
-export MAKEFLAGS   := --no-print-directory
-.DEFAULT_GOAL      := all
-.SUBLIME_TARGETS:     all
-.PHONY:               all
+export MAKEFLAGS:=--no-print-directory
+
+.DEFAULT_GOAL:=all
+.SUBLIME_TARGETS:all
+.PHONY:all build clean
+
+export DeOS_VM_BOX:=bento/ubuntu-16.04
+export DeOS_VM_PATH:=/deos
+export DeOS_VM_SHELL_DEFAULT:=bash -c 'BASH_ENV=/etc/profile exec bash'
+export DeOS_VM_SHELL_SSH:=bash -l
+
+BASEDIR:=$(CURDIR)
+BIN:=$(BASEDIR)/bin
+EXT:=$(BASEDIR)/ext
+BITCOIN:=$(EXT)/bitcoin
+INCLUDE:=$(BASEDIR)/include
+LIB:=$(BASEDIR)/lib
+OBJ:=$(BASEDIR)/obj
+SRC:=$(BASEDIR)/src
+TEST:=$(BASEDIR)/test
+
+BITCOIN_TEST_MAIN:=$(TEST)/bitcoin-test.cpp
+BITCOIN_TEST_EXE:=$(BIN)/bitcoin.test.out
+CUCKOO_TEST_MAIN:=$(TEST)/cuckoo-test.cpp
+CUCKOO_TEST_EXE:=$(BIN)/cuckoo.test.out
+KECCAK_TEST_MAIN:=$(TEST)/keccak-test.cpp
+KECCAK_TEST_EXE:=$(BIN)/keccak.test.out
+
+#FILES:=$(wildcard $(LIB)/*.cpp)
+FILES:=$(LIB)/block.cpp
+OBJECTS:=$(patsubst $(LIB)/%,$(OBJ)/%,$(FILES:.cpp=.o))
+CC:=clang++
+STD:=c++11
+MAIN:=$(SRC)/main.cpp
+EXE:=$(BIN)/a.out

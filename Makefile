@@ -1,19 +1,21 @@
 include .deosrc
 
-all:
-	@ $(MAKE) up
+include src/bitcoin.mk
+include src/cuckoo.mk
+include src/keccak.mk
+include src/vagrant.mk
 
-up:
-	@-vagrant up
+all: clean
+	$(MAKE) $(EXE)
 
-ssh:
-	@-vagrant ssh
+$(EXE): build
+	$(EXE)
 
-stop:
-	@-vagrant suspend
+build: $(OBJECTS)
+	$(CC) -std=$(STD) -I$(INCLUDE) $(MAIN) $(OBJECTS) -o $(EXE)
 
-halt:
-	@-vagrant halt
+$(OBJ)/%.o: $(LIB)/%.cpp $(INCLUDE)/%.h
+	$(CC) -std=$(STD) -Wall -g -I$(INCLUDE) -c $(LIB)/$*.cpp -o $(OBJ)/$*.o
 
 clean:
-	@-vagrant destroy
+	@-rm -rf $(OBJECTS) $(EXE)

@@ -1,6 +1,9 @@
-#[folders]
-src/cuckoo/bitcoin/
-src/keccak/bitcoin/
+#[wildcards]
+*.o
+*.out
+
+#[files]
+ext/bitcoin/background.tiff*
 
 #[dotfiles]
 .DS_Store
