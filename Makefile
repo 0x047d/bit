@@ -1,5 +1,8 @@
 include .deosrc
+
 include src/bitcoin.mk
+include src/cuckoo.mk
+include src/keccak.mk
 include src/vagrant.mk
 
 all: clean

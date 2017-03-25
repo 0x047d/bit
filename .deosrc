@@ -18,7 +18,13 @@ OBJ:=$(BASEDIR)/obj
 SRC:=$(BASEDIR)/src
 TEST:=$(BASEDIR)/test
 
-FILES:=$(wildcard $(LIB)/*.cpp)
+CUCKOO_TEST_MAIN:=$(TEST)/cuckoo-test.cpp
+CUCKOO_TEST_EXE:=$(BIN)/cuckoo.test.out
+KECCAK_TEST_MAIN:=$(TEST)/keccak-test.cpp
+KECCAK_TEST_EXE:=$(BIN)/keccak.test.out
+
+#FILES:=$(wildcard $(LIB)/*.cpp)
+FILES:=$(LIB)/block.cpp
 OBJECTS:=$(patsubst $(LIB)/%,$(OBJ)/%,$(FILES:.cpp=.o))
 CC:=clang++
 STD:=c++11
