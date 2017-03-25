@@ -18,6 +18,8 @@ OBJ:=$(BASEDIR)/obj
 SRC:=$(BASEDIR)/src
 TEST:=$(BASEDIR)/test
 
+BITCOIN_TEST_MAIN:=$(TEST)/bitcoin-test.cpp
+BITCOIN_TEST_EXE:=$(BIN)/bitcoin.test.out
 CUCKOO_TEST_MAIN:=$(TEST)/cuckoo-test.cpp
 CUCKOO_TEST_EXE:=$(BIN)/cuckoo.test.out
 KECCAK_TEST_MAIN:=$(TEST)/keccak-test.cpp
