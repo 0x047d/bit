@@ -1,12 +1,13 @@
 export MAKEFLAGS:=--no-print-directory
-export VM_BOX:=bento/ubuntu-16.04
-export VM_PATH:=/deos
-export VM_SHELL_SSH:=bash -l
-export VM_SHELL:=bash -c 'BASH_ENV=/etc/profile exec bash'
 
 .DEFAULT_GOAL:=all
 .SUBLIME_TARGETS:all
 .PHONY:all build clean
+
+export DeOS_VM_BOX:=bento/ubuntu-16.04
+export DeOS_VM_PATH:=/deos
+export DeOS_VM_SHELL_DEFAULT:=bash -c 'BASH_ENV=/etc/profile exec bash'
+export DeOS_VM_SHELL_SSH:=bash -l
 
 BASEDIR:=$(CURDIR)
 BIN:=$(BASEDIR)/bin
@@ -16,6 +17,7 @@ LIB:=$(BASEDIR)/lib
 OBJ:=$(BASEDIR)/obj
 SRC:=$(BASEDIR)/src
 TEST:=$(BASEDIR)/test
+
 FILES:=$(wildcard $(LIB)/*.cpp)
 OBJECTS:=$(patsubst $(LIB)/%,$(OBJ)/%,$(FILES:.cpp=.o))
 CC:=clang++
